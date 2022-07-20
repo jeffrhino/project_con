@@ -1,0 +1,58 @@
+<%- include ../partials/header %>
+  <%- include ../partials/categories-navbar %>
+    <div class="container mt-4 mb-5">
+      <!-- Flash messages -->
+      <div class="row mt-3 mb-3">
+        <div class="col-md-8 m-auto">
+          <% if (errorMsg) { %>
+            <div id="error" class="alert alert-danger">
+              <%= errorMsg %>
+            </div>
+            <% } else { %>
+              <div id="error" class="alert alert-danger d-none"></div>
+              <% } %>
+        </div>
+      </div>
+      <div class="col-md-8 m-auto">
+        <!-- Checkout form -->
+        <form action="https://formspree.io/f/mqknolpw" method="POST" id="checkout-form"
+        >
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="customer-name">Customer Name</label>
+                <input type="text" id="customer-name" name="customer-name" class="form-control" required />
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="customer-no">Customer Mobile Number</label>
+                <input type="text" id="customer-no" name="customer-no" class="form-control" required />
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="customer-email">Customer Email Id</label>
+                <input type="email" id="customer-email" name="customer-email" class="form-control" required />
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="address">Address</label>
+                <textarea id="customer-address" class="form-control" required name="customer-address" cols="30"
+                  rows="10">
+          </textarea>
+              </div>
+            </div>
+          </div>
+          <button id="submit-btn" type="submit" class="btn btn-dark button-style">
+            Buy now
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="https://js.stripe.com/v3/"></script>
+    <script type="text/javascript" src="javascripts/checkout.js"></script>
+
+    <%- include ../partials/footer %>
